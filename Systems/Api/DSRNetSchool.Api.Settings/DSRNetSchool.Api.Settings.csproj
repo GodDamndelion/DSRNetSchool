@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Services\DSRNetSchool.Services.Settings\DSRNetSchool.Services.Settings.csproj" />
+    <ProjectReference Include="..\..\..\Shared\DSRNetSchool.Settings\DSRNetSchool.Settings.csproj" />
+  </ItemGroup>
+
 </Project>

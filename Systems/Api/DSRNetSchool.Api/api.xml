@@ -47,7 +47,7 @@
             Swagger configuration
             </summary>
         </member>
-        <member name="M:DSRNetSchool.Api.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:DSRNetSchool.Api.Configuration.SwaggerConfiguration.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,DSRNetSchool.Services.Settings.MainSettings,DSRNetSchool.Services.Settings.SwaggerSettings)">
             <summary>
             Add OpenAPI for API
             </summary>
@@ -71,6 +71,18 @@
             Add version support for API
             </summary>
             <param name="services">Services collection</param>
+        </member>
+        <member name="M:DSRNetSchool.Api.Controllers.TestController.GetData1">
+            <summary>
+            Get data 1
+            </summary>
+            <response code="200">String items</response>
+        </member>
+        <member name="M:DSRNetSchool.Api.Controllers.TestController.GetData2(System.String)">
+            <summary>
+            Get data 2
+            </summary>
+            <response code="200">String items</response>
         </member>
     </members>
 </doc>
