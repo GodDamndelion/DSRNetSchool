@@ -19,6 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
@@ -30,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\DSRNetSchool.Context\DSRNetSchool.Context.csproj" />
+    <ProjectReference Include="..\..\..\Data\Migrations\DSRNetSchool.Context.MigrationsMSSQL\DSRNetSchool.Context.MigrationsMSSQL.csproj" />
+    <ProjectReference Include="..\..\..\Data\Migrations\DSRNetSchool.Context.MigrationsPostgreSQL\DSRNetSchool.Context.MigrationsPostgreSQL.csproj" />
     <ProjectReference Include="..\..\..\Services\DSRNetSchool.Services.Settings\DSRNetSchool.Services.Settings.csproj" />
     <ProjectReference Include="..\..\..\Shared\DSRNetSchool.Common\DSRNetSchool.Common.csproj" />
     <ProjectReference Include="..\..\..\Shared\DSRNetSchool.Settings\DSRNetSchool.Settings.csproj" />

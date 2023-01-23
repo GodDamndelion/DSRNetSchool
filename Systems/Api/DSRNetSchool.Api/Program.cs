@@ -1,5 +1,6 @@
 using DSRNetSchool.Api;
 using DSRNetSchool.Api.Configuration;
+using DSRNetSchool.Context;
 using DSRNetSchool.Services.Settings;
 using DSRNetSchool.Settings;
 
@@ -18,6 +19,8 @@ var services = builder.Services;
 services.AddHttpContextAccessor();
 services.AddAppCors();
 
+services.AddAppDbContext(builder.Configuration);
+
 services.AddAppHealthChecks();
 services.AddAppVersioning();
 services.AddAppSwagger(mainSettings, swaggerSettings);
@@ -33,6 +36,9 @@ var app = builder.Build();
 app.UseAppHealthChecks();
 app.UseAppSwagger();
 //app.UseAppCors(); //пока не сделал...
+
+DbInitializer.Execute(app.Services);
+DbSeeder.Execute(app.Services, true, true);
 
 // Configure the HTTP request pipeline.
 
