@@ -14,6 +14,7 @@ var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 builder.AddAppLogger();
 
 // Configure services
+
 var services = builder.Services;
 
 services.AddHttpContextAccessor();
