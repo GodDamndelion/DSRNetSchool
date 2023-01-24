@@ -37,7 +37,7 @@ var app = builder.Build();
 
 app.UseAppHealthChecks();
 app.UseAppSwagger();
-//app.UseAppCors(); //пока не сделал...
+//app.UseAppCors(); //Пока не сделал...
 
 DbInitializer.Execute(app.Services);
 DbSeeder.Execute(app.Services, true, true);
