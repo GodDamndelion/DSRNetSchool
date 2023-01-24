@@ -24,6 +24,7 @@ services.AddAppDbContext(builder.Configuration);
 services.AddAppHealthChecks();
 services.AddAppVersioning();
 services.AddAppSwagger(mainSettings, swaggerSettings);
+services.AddAppAutoMappers();
 
 services.AddAppControllerAndViews();
 
