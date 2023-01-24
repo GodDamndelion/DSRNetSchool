@@ -50,4 +50,6 @@ app.UseStaticFiles(); //Сам дописал, чинит вёрстку
 
 app.UseAppControllerAndViews();
 
+app.UseAppMiddlewares();
+
 app.Run();
