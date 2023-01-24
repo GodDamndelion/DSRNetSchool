@@ -39,7 +39,7 @@ public class BooksController : ControllerBase
     /// <param name="offset">Offset to the first element</param>
     /// <param name="limit">Count elements on the page</param>
     /// <response code="200">List of BookResponses</response>
-    [ProducesResponseType(typeof(IEnumerable<BookResponse>), 200)] //Показывает, что придёт по такому коду
+    [ProducesResponseType(typeof(IEnumerable<BookResponse>), 200)]
     [HttpGet("")]
     public async Task<IEnumerable<BookResponse>> GetBooks([FromQuery] int offset = 0, [FromQuery] int limit = 10)
     {

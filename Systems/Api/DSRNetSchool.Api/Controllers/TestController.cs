@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using DSRNetSchool.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,23 +53,8 @@ namespace DSRNetSchool.Api.Controllers
             return result;
         }
 
-        //Для проверки ExceptionsMiddleware
 
-        [HttpGet("Pass")]
-        [ApiVersion("1.0")]
-        public string ActionWithoutError()
-        {
-            return "All right!";
-        }
 
-        [HttpGet("Error")]
-        [ApiVersion("1.0")]
-        [ApiVersion("2.0")]
-        public string ActionWithError()
-        {
-            throw new ProcessException("We have error!!!");
 
-            return "All right!";
-        }
     }
 }
