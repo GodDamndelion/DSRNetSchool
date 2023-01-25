@@ -17,7 +17,7 @@ builder.AddAppLogger();
 
 var services = builder.Services;
 
-services.AddHttpContextAccessor();
+services.AddHttpContextAccessor(); //Для CorrelationId
 services.AddAppCors();
 
 services.AddAppDbContext(builder.Configuration);
@@ -37,7 +37,7 @@ var app = builder.Build();
 
 app.UseAppHealthChecks();
 app.UseAppSwagger();
-//app.UseAppCors(); //Пока не сделал...
+//app.UseAppCors(); //Пока не нужно
 
 DbInitializer.Execute(app.Services);
 DbSeeder.Execute(app.Services, true, true);
