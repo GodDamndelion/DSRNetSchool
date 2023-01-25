@@ -84,6 +84,16 @@
             </summary>
             <response code="200">String items</response>
         </member>
+        <member name="P:DSRNetSchool.API.Controllers.Models.BookResponse.Id">
+            <summary>
+            Book Id
+            </summary>
+        </member>
+        <member name="P:DSRNetSchool.API.Controllers.Models.BookResponse.Title">
+            <summary>
+            Book title
+            </summary>
+        </member>
         <member name="T:DSRNetSchool.API.Controllers.BooksController">
             <summary>
             Books controller
@@ -106,16 +116,6 @@
             Get books by Id
             </summary>
             <response code="200">BookResponse></response>
-        </member>
-        <member name="P:DSRNetSchool.API.Controllers.Models.BookResponse.Id">
-            <summary>
-            Book Id
-            </summary>
-        </member>
-        <member name="P:DSRNetSchool.API.Controllers.Models.BookResponse.Title">
-            <summary>
-            Book title
-            </summary>
         </member>
     </members>
 </doc>
