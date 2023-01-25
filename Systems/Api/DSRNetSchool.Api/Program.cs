@@ -22,6 +22,7 @@ services.AddHttpContextAccessor(); //Для CorrelationId
 services.AddAppCors();
 
 services.AddAppDbContext(builder.Configuration);
+services.AddAppAuth(identitySettings);
 
 services.AddAppHealthChecks();
 services.AddAppVersioning();
@@ -34,16 +35,17 @@ services.RegisterAppServices();
 
 //builder.Services.AddControllers(); //Стандартный, нам не нужен
 
+// Configure the HTTP request pipeline.
+
 var app = builder.Build();
 
 app.UseAppHealthChecks();
+
 app.UseAppSwagger();
+
+app.UseAppAuth();
+
 //app.UseAppCors(); //Пока не нужно
-
-DbInitializer.Execute(app.Services);
-DbSeeder.Execute(app.Services, true, true);
-
-// Configure the HTTP request pipeline.
 
 //app.UseAuthorization();
 //app.MapControllers();
@@ -53,5 +55,8 @@ app.UseStaticFiles(); //Сам дописал, чинит вёрстку
 app.UseAppControllerAndViews();
 
 app.UseAppMiddlewares();
+
+DbInitializer.Execute(app.Services);
+DbSeeder.Execute(app.Services, true, true);
 
 app.Run();
