@@ -2,6 +2,7 @@
 
 using DSRNetSchool.Api.Settings;
 using DSRNetSchool.Services.Books;
+using DSRNetSchool.Services.Cache;
 using DSRNetSchool.Services.Settings;
 using DSRNetSchool.Services.UserAccount;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class Bootstrapper
             .AddApiSpecialSettings()
             .AddBookService()
             .AddUserAccountService()
+            .AddCache()
             ;
 
         return services;
