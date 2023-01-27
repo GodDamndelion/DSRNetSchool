@@ -49,8 +49,7 @@ app.UseAppAuth();
 
 //app.UseAuthorization();
 //app.MapControllers();
-
-app.UseStaticFiles(); //Сам дописал, чинит вёрстку
+//app.UseStaticFiles(); //Сам дописал, чинит вёрстку, но уже не нужно
 
 app.UseAppControllerAndViews();
 
