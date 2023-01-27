@@ -59,7 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSRNetSchool.Worker", "Syst
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C6C4C272-AF7C-44DF-ABA3-078C173AC262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSRNetSchool.Web", "Systems\Web\DSRNetSchool.Web\DSRNetSchool.Web.csproj", "{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSRNetSchool.Web", "Systems\Web\DSRNetSchool.Web\DSRNetSchool.Web.csproj", "{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSRNetSchool.Services.Authors", "Services\DSRNetSchool.Services.Authors\DSRNetSchool.Services.Authors.csproj", "{16FDAD60-CC2B-456A-9F0D-41331EF96802}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FDAD60-CC2B-456A-9F0D-41331EF96802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FDAD60-CC2B-456A-9F0D-41331EF96802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FDAD60-CC2B-456A-9F0D-41331EF96802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FDAD60-CC2B-456A-9F0D-41331EF96802}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +182,7 @@ Global
 		{54D07E7E-8B2B-4E5B-A8CA-CC71ADA1190B} = {1647F984-0038-4B8C-BE2B-95575FF70028}
 		{C6C4C272-AF7C-44DF-ABA3-078C173AC262} = {E34A19A1-2C4A-4E53-A270-09A184B4469F}
 		{8271B7DF-5E2D-4791-9DE9-8DDC06679CB0} = {C6C4C272-AF7C-44DF-ABA3-078C173AC262}
+		{16FDAD60-CC2B-456A-9F0D-41331EF96802} = {DE9E359D-DFC0-4CDB-9137-84E2834E1358}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7933EB46-D946-4CEA-AFC0-BB0AE9E3481B}

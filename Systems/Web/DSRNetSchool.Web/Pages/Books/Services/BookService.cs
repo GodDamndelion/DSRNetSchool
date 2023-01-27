@@ -48,66 +48,66 @@ public class BookService : IBookService
         return data;
     }
 
-    //public async Task AddBook(BookModel model)
-    //{
-    //    string url = $"{Settings.ApiRoot}/v1/books";
+    public async Task AddBook(BookModel model)
+    {
+        string url = $"{Settings.ApiRoot}/v1/books";
 
-    //    var body = JsonSerializer.Serialize(model);
-    //    var request = new StringContent(body, Encoding.UTF8, "application/json");
-    //    var response = await _httpClient.PostAsync(url, request);
+        var body = JsonSerializer.Serialize(model);
+        var request = new StringContent(body, Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync(url, request);
 
-    //    var content = await response.Content.ReadAsStringAsync();
+        var content = await response.Content.ReadAsStringAsync();
 
-    //    if (!response.IsSuccessStatusCode)
-    //    {
-    //        throw new Exception(content);
-    //    }
-    //}    
-    
-    //public async Task EditBook(int bookId, BookModel model)
-    //{
-    //    string url = $"{Settings.ApiRoot}/v1/books/{bookId}";
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+    }
 
-    //    var body = JsonSerializer.Serialize(model);
-    //    var request = new StringContent(body, Encoding.UTF8, "application/json");
+    public async Task EditBook(int bookId, BookModel model)
+    {
+        string url = $"{Settings.ApiRoot}/v1/books/{bookId}";
 
-    //    var response = await _httpClient.PutAsync(url, request);
+        var body = JsonSerializer.Serialize(model);
+        var request = new StringContent(body, Encoding.UTF8, "application/json");
 
-    //    var content = await response.Content.ReadAsStringAsync();
+        var response = await _httpClient.PutAsync(url, request);
 
-    //    if (!response.IsSuccessStatusCode)
-    //    {
-    //        throw new Exception(content);
-    //    }
-    //}
+        var content = await response.Content.ReadAsStringAsync();
 
-    //public async Task DeleteBook(int bookId)
-    //{
-    //    string url = $"{Settings.ApiRoot}/v1/books/{bookId}";
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+    }
 
-    //    var response = await _httpClient.DeleteAsync(url);
-    //    var content = await response.Content.ReadAsStringAsync();
+    public async Task DeleteBook(int bookId)
+    {
+        string url = $"{Settings.ApiRoot}/v1/books/{bookId}";
 
-    //    if (!response.IsSuccessStatusCode)
-    //    {
-    //        throw new Exception(content);
-    //    }
-    //}
+        var response = await _httpClient.DeleteAsync(url);
+        var content = await response.Content.ReadAsStringAsync();
 
-    //public async Task<IEnumerable<AuthorModel>> GetAuthorList()
-    //{
-    //    string url = $"{Settings.ApiRoot}/v1/authors";
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+    }
 
-    //    var response = await _httpClient.GetAsync(url);
-    //    var content = await response.Content.ReadAsStringAsync();
+    public async Task<IEnumerable<AuthorModel>> GetAuthorList()
+    {
+        string url = $"{Settings.ApiRoot}/v1/authors";
 
-    //    if (!response.IsSuccessStatusCode)
-    //    {
-    //        throw new Exception(content);
-    //    }
+        var response = await _httpClient.GetAsync(url);
+        var content = await response.Content.ReadAsStringAsync();
 
-    //    var data = JsonSerializer.Deserialize<IEnumerable<AuthorModel>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<AuthorModel>();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
 
-    //    return data;
-    //}
+        var data = JsonSerializer.Deserialize<IEnumerable<AuthorModel>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new List<AuthorModel>();
+
+        return data;
+    }
 }

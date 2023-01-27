@@ -2,41 +2,12 @@
 
 @layout MainLayout
 
-@*@inject ISnackbar Snackbar
-@inject IDialogService DialogService*@
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
 @inject IBookService bookService
-@*@inject NavigationManager navigationManager*@
+@inject NavigationManager navigationManager
 
-<h1>Books</h1>
-
-@foreach (var book in BookListItems)
-{
-    <div>@book.Author - @book.Title</div>
-}
-
-@code {
-    private IEnumerable<BookListItem> BookListItems = new List<BookListItem>();
-
-    private async Task ReloadData()
-    {
-        BookListItems = await bookService.GetBooks(0, 1000);
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        try
-        {
-            Console.WriteLine("Get books from API"); //В Blazor пишется в консоль браузера.
-            await ReloadData();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-}
-
-@*<MudText Typo="Typo.h4" Class="ma-8">Books</MudText>
+<MudText Typo="Typo.h4" Class="ma-8">Books</MudText>
 
 <MudTable Items="@BookListItems" Class="ma-8" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<BookListItem,bool>(FilterFuncSimple)">
     <ColGroup>
@@ -97,7 +68,7 @@
         }
         catch (Exception ex)
         {
-            Snackbar.Add(ex.Message, Severity.Error);
+            Snackbar.Add(ex.Message, Severity.Error); //Всплывающие уведомления в левом нижнем углу
         }
     }
 
@@ -165,4 +136,4 @@
             await ReloadData();
         }
     }
-}*@
+}
