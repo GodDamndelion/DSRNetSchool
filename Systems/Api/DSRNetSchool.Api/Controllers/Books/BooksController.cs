@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 [ProducesResponseType(typeof(ErrorResponse), 400)]
 [Produces("application/json")]
 [Route("api/v{version:apiVersion}/books")]
-[Authorize]
+//[Authorize] Временно для запуска убрали
 [ApiController]
 [ApiVersion("1.0")]
 public class BooksController : ControllerBase
@@ -43,7 +43,7 @@ public class BooksController : ControllerBase
     /// <param name="limit">Count elements on the page</param>
     /// <response code="200">List of BookResponses</response>
     [ProducesResponseType(typeof(IEnumerable<BookResponse>), 200)] //Показывает, что придёт по такому коду
-    [Authorize(Policy = AppScopes.BooksRead)]
+    //[Authorize(Policy = AppScopes.BooksRead)] Временно для запуска убрали
     [HttpGet("")]
     public async Task<IEnumerable<BookResponse>> GetBooks([FromQuery] int offset = 0, [FromQuery] int limit = 10)
     {
