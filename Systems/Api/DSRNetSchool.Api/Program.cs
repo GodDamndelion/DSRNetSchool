@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var mainSettings = Settings.Load<MainSettings>("Main");
+//var mainSettings = Settings.Load<MainSettings>("Main");
 var identitySettings = Settings.Load<IdentitySettings>("Identity");
 var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 
@@ -39,13 +39,13 @@ services.RegisterAppServices();
 
 var app = builder.Build();
 
+app.UseAppCors(); //Вспомнили
+
 app.UseAppHealthChecks();
 
 app.UseAppSwagger();
 
 app.UseAppAuth();
-
-//app.UseAppCors(); //Пока не нужно
 
 //app.UseAuthorization();
 //app.MapControllers();

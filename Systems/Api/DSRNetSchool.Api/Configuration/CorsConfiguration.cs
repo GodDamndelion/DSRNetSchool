@@ -18,6 +18,7 @@ public static class CorsConfiguration
                 pol.AllowAnyHeader();
                 pol.AllowAnyMethod();
                 pol.AllowAnyOrigin();
+                //На практике нужно настраивать, кому разрешать доступ
             });
         });
         return services;

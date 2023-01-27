@@ -37,9 +37,14 @@ public class BookService : IBookService
     {
         try
         {
+            //Пока кэш не устареет, будут показываться одни и те же данные, даже если в БД они уже изменились
+            //Кэш используется для данных, которые долго доставать из БД и которые гарантированно не поменяются за время его жизни или если изменения не будут критичными.
+            //Также он может использоваться для каких-либо расчётных данных, например для матрицы прав на время жизни сессии.
+            //Ещё кэш может использоваться для настроек.
+            //Кэш может применяться, когда идёт огромное количество запросов. Например, время жизни кэша 1 минута, и за это время делаются тысячи или миллионы запросов.
             var cached_data = await cacheService.Get<IEnumerable<BookModel>>(contextCacheKey);
             if (cached_data != null)
-                return cached_data; //Если нашли данные в кеше, то тут же вернули. Иначе...
+                return cached_data; //Если нашли данные в кэше, то тут же вернули. Иначе...
         }
         catch
         {
@@ -61,7 +66,7 @@ public class BookService : IBookService
 
         var data = (await books.ToListAsync()).Select(book => mapper.Map<BookModel>(book)); //Сформировали
 
-        await cacheService.Put(contextCacheKey, data, TimeSpan.FromSeconds(30)); //И положили в кеш
+        await cacheService.Put(contextCacheKey, data, TimeSpan.FromSeconds(30)); //И положили в кэш
 
         return data;
     }
@@ -86,6 +91,8 @@ public class BookService : IBookService
         await context.Books.AddAsync(book);
         context.SaveChanges();
 
+        await cacheService.Delete(contextCacheKey);
+
         return mapper.Map<BookModel>(book);
     }
 
@@ -103,6 +110,7 @@ public class BookService : IBookService
 
         context.Books.Update(book);
         context.SaveChanges();
+        await cacheService.Delete(contextCacheKey);
     }
 
     public async Task DeleteBook(int bookId)
@@ -114,5 +122,6 @@ public class BookService : IBookService
 
         context.Remove(book);
         context.SaveChanges();
+        await cacheService.Delete(contextCacheKey);
     }
 }
