@@ -35,6 +35,7 @@ public class BookService : IBookService
 
     public async Task<IEnumerable<BookModel>> GetBooks(int offset = 0, int limit = 10)
     {
+        /* Пока закроем кэширование на время отладки
         try
         {
             //Пока кэш не устареет, будут показываться одни и те же данные, даже если в БД они уже изменились
@@ -52,6 +53,7 @@ public class BookService : IBookService
         }
 
         await Task.Delay(5000); //Эмуляция долгой работы
+        */
 
         using var context = await contextFactory.CreateDbContextAsync();
 

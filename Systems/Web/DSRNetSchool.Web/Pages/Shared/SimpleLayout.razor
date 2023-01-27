@@ -1,8 +1,17 @@
 ﻿@inherits LayoutComponentBase
 
-<div>
-    @Body
-</div>
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudText Typo="Typo.h5">DSRNetSchool</MudText>
+    </MudAppBar>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
 
 @*@inject IConfigurationService configuration
 
