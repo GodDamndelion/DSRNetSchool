@@ -52,6 +52,17 @@ services:
       - dsrnetschool_rabbitmq
       - dsrnetschool_api
 
+  dsrnetschool_web:
+    image: ${DOCKER_REGISTRY-}dsrnetschoolweb
+    build:
+      context: .
+      dockerfile: Systems/Web/DSRNetSchool.Web/Dockerfile
+    depends_on:
+      - dsrnetschool_postgresql
+      - dsrnetschool_redis
+      - dsrnetschool_rabbitmq
+      - dsrnetschool_api
+
 #docker-compose build
 #docker-compose up
 #^C

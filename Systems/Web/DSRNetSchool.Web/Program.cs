@@ -22,3 +22,6 @@ builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IConfigurationService, ConfigurationService>();
 
 await builder.Build().RunAsync();
+
+//Для WebAssembly Докер файл автоматически не создаётся.
+//Значит пишем ручками

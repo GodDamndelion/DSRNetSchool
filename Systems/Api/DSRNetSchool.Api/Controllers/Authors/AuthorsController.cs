@@ -24,7 +24,7 @@ public class AuthorsController : ControllerBase
     }
 
     [HttpGet("")]
-    //[Authorize(AppScopes.BooksRead)] Пока отключили, чтобы не мешалось
+    [Authorize(AppScopes.BooksRead)]
     public async Task<IEnumerable<AuthorResponse>> GetAuthors()
     {
         var books = await authorService.GetAuthors();
